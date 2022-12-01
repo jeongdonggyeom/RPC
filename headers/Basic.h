@@ -10,21 +10,20 @@ using namespace std;
 
 class Basic{
 private: 
-    User user;
     Bot bot;
     Game game;
 public:
-    Basic(User user): user(user), bot(), game() {}
-    bool start(){
+    Basic(User user): bot(), game(user) {}
+    bool start(User user){
         system("cls");
-        game.title("일반", user);
+        game.title("일반");
         user.myOffer();
 
         const int userOffer = user.getMyOffer();
         const int botOffer = bot.getRandomNum();
 
         int result = game.WhoIsWin(userOffer, botOffer);
-        return game.judgement(result, user);
+        return game.judgement(result);
     }
 };
 

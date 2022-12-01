@@ -8,11 +8,14 @@ using namespace std;
 
 class Game{
 private:
+    User user;
 public:
-    void title(string title, User user, string end=""){
+    Game(User user): user(user) {}
+    void title(string title, string end=""){
         cout << title << " 가위바위보 시작 (현재 연승 횟수: " << user.getStack() << ")\n";
         cout << "무엇을 내시겠습니까? 1: 가위, 2: 바위, 3: 보" << end << "\n";
     }
+    
     int WhoIsWin(int userOffer, int botOffer){
         cout << "BOT: " << botOffer << "\n";
         if(userOffer == 1){
@@ -32,7 +35,7 @@ public:
         }
     }
 
-    bool judgement(int result, User user){
+    bool judgement(int result){
         if(result == 0){
             cout << "당신이 졌습니다... \n";
             Sleep(1000);

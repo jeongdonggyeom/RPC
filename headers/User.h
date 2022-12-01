@@ -8,9 +8,8 @@ using namespace std;
 class User{
 private:
     string username;
-    int stack = 0, offer=0, offer2=0;
+    unsigned int stack, offer, offer2;
     bool attack;
-    int* arr = new int[2];
 public:
     User(string username): username(username), stack(0), offer(0), offer2(0) {}
     void myOffer(){
@@ -21,23 +20,20 @@ public:
         cin >> offer >> offer2;
         if(offer >= 4 || offer <= 0 || offer2 >= 4 || offer2 <= 0) throw Exception(1);
     }
-    int* getMyChooseOffer(){
-        arr[0] = offer;
-        arr[1] = offer2;
+    int* getMyChooseOffer(int* user_arr){
+        user_arr[0] = offer;
+        user_arr[1] = offer2;
 
-        return arr;
+        return user_arr;
     }
-    int getMyOffer(){
+    unsigned int getMyOffer(){
         return offer;
     }
-    int getStack(){
+    unsigned int getStack(){
         return stack;
     }
     void addStack(){
         stack++;
-    }
-    ~User(){
-        delete[] arr;
     }
 };
 
