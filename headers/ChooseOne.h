@@ -11,17 +11,17 @@ using namespace std;
 
 class ChooseOne{
 private:
-    User user;
     Bot bot;
     Game game;
 public:
-    ChooseOne(User user): user(user), bot(), game() {}
-    bool start(){
-        game.title("하나 빼기", user, " (2개를 공백을 기준으로 입력 해주세요.)");
+    ChooseOne(User user): bot(), game(user) {}
+    bool start(User user, int* user_arr, int* bot_arr){
+        system("cls");
+        game.title("하나 빼기", " (2개를 공백을 기준으로 입력 해주세요.)");
 
         user.ChooseOneOffer();
-        int* botOffer = bot.BotChooseOneOffer();
-        int* userOffer = user.getMyChooseOffer();
+        int* botOffer = bot.BotChooseOneOffer(bot_arr);
+        int* userOffer = user.getMyChooseOffer(user_arr);
 
         cout << "봇: ";
         for(int i=0;i<2;i++){
@@ -34,11 +34,12 @@ public:
         }
         cout << "\n";
         cout << "둘 중 하나를 선택해주세요. (0 또는 1) \n";
-        int input;
+        unsigned int input;
         cin >> input;
 
-        int result = game.WhoIsWin(userOffer[input], botOffer[0]);
-        return game.judgement(result, user);
+        int result = game.WhoIsWin(userOffer[input], botOffer[bot.getRandomIndex()]);
+        cout << result << "\n";
+        return game.judgement(result);
     }
 };
 

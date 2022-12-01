@@ -10,7 +10,6 @@ std::uniform_int_distribution<int> dis(1, 3);
 class Bot{
 private:
     bool attack;
-    int* arr = new int[2];
 public:
     Bot() {}
     int getRandomNum(){
@@ -19,14 +18,11 @@ public:
     int getRandomIndex(){
         return rand()%2;
     }
-    int* BotChooseOneOffer(){
-        arr[0] = getRandomNum();
-        arr[1] = getRandomNum();
+    int* BotChooseOneOffer(int* bot_arr){
+        bot_arr[0] = getRandomNum();
+        bot_arr[1] = getRandomNum();
 
-        return arr;
-    }
-    ~Bot(){
-        delete[] arr;
+        return bot_arr;
     }
 };
 
