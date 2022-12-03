@@ -14,16 +14,22 @@ private:
     Game game;
 public:
     Basic(User user): bot(), game(user) {}
-    bool start(User user){
+    void title(){
         system("cls");
         game.title("¿œπ›");
+    }
+    bool start(User user){
+        title();
+        int result = rpc(user);
+        return game.judgement(result);
+    }
+    bool rpc(User user){
         user.myOffer();
 
         const int userOffer = user.getMyOffer();
         const int botOffer = bot.getRandomNum();
 
-        int result = game.WhoIsWin(userOffer, botOffer);
-        return game.judgement(result);
+        return game.WhoIsWin(userOffer, botOffer);
     }
 };
 
