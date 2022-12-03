@@ -9,11 +9,13 @@ std::uniform_int_distribution<int> dis(1, 3);
 
 class Bot{
 private:
+    int offer;
     bool attack;
 public:
     Bot() {}
     int getRandomNum(){
-        return (rand()%3)+1;
+        offer = (rand()%3)+1;
+        return offer;
     }
     int getRandomIndex(){
         return rand()%2;
