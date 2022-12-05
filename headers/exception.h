@@ -13,7 +13,7 @@ public:
     Exception(int code): code(code) {}
     void errorLog(){
         if(code == 1){
-            cout << "조건에 맞지 않는 입력";
+            cout << "조건에 맞지 않는 입력\n";
         }
     }
 };

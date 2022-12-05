@@ -1,17 +1,14 @@
 #ifndef __USER_H__
 #define __USER_H__
 
-#include <string>
 #include "exception.h"
 using namespace std;
 
 class User{
 private:
-    string username;
-    unsigned int stack, offer, offer2;
-    bool attack;
+    unsigned offer, offer2;
+    int attack;
 public:
-    User(string username): username(username), stack(0), offer(0), offer2(0) {}
     void myOffer(){
         cin >> offer;
         if(offer >= 4 || offer <= 0) throw Exception(1);
@@ -29,11 +26,14 @@ public:
     unsigned int getMyOffer(){
         return offer;
     }
-    unsigned int getStack(){
-        return stack;
+    void setAttack(bool flag){
+        attack = flag;
     }
-    void addStack(){
-        stack++;
+    bool getAttack(){
+        return attack;
+    }
+    void print(){
+        cout << "³ª: " << offer << " " << offer2 << "\n";
     }
 };
 

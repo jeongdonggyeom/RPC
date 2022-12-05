@@ -13,7 +13,7 @@ private:
     Bot bot;
     Game game;
 public:
-    Basic(User user): bot(), game(user) {}
+    Basic(User user): bot() {}
     void title(){
         system("cls");
         game.title("¿œπ›");
@@ -21,9 +21,9 @@ public:
     bool start(User user){
         title();
         int result = rpc(user);
-        return game.judgement(result);
+        return game.judgement(result, user);
     }
-    bool rpc(User user){
+    int rpc(User user){
         user.myOffer();
 
         const int userOffer = user.getMyOffer();

@@ -9,10 +9,8 @@ std::uniform_int_distribution<int> dis(1, 3);
 
 class Bot{
 private:
-    int offer;
-    bool attack;
+    int offer, offer2, attack;
 public:
-    Bot() {}
     int getRandomNum(){
         offer = (rand()%3)+1;
         return offer;
@@ -24,7 +22,19 @@ public:
         bot_arr[0] = getRandomNum();
         bot_arr[1] = getRandomNum();
 
+        offer = bot_arr[0];
+        offer2 = bot_arr[1];
+
         return bot_arr;
+    }
+    void setAttack(bool flag){
+        attack = flag;
+    }
+    bool getAttack(){
+        return attack;
+    }
+    void print(){
+        cout << "º¿: " << offer << " " << offer2 << "\n";
     }
 };
 
