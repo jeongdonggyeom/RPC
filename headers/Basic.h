@@ -1,7 +1,6 @@
 #ifndef __BASIC_H__
 #define __BASIC_H__
 
-#include <string>
 #include <iostream>
 #include "User.h"
 #include "Bot.h"
@@ -21,7 +20,7 @@ public:
     bool start(User user){
         title();
         int result = rpc(user);
-        return game.judgement(result, user);
+        return game.judgement(result);
     }
     int rpc(User user){
         user.myOffer();

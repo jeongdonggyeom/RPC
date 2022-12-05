@@ -28,11 +28,11 @@ int main()
             system("cls");
             cout << "어떤 가위바위보를 하시겠습니까? \n1: 일반, 2: 하나 빼기, 3: 묵찌빠 (0: 종료) \n";
             cin >> input;
-            if(input >= 4 || input <= 0) throw Exception(1);
             if(!input) {
                 cout << "가위바위보를 종료합니다...\n";
                 break;
             }
+            if(input >= 4 || input <= 0) throw Exception(1);
             while(true){
                 bool flag;
                 if(input == 1){

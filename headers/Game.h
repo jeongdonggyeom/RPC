@@ -33,21 +33,21 @@ public:
         }
     }
 
-    bool judgement(int result, User user){
+    int judgement(int result){
         if(result == 0){
             cout << "당신이 졌습니다... \n";
             Sleep(1000);
-            return false;
+            return 0;
         }
         else if(result == 1){
             cout << "당신이 이겼습니다!\n";
             Sleep(1000);
-            return true;
+            return 1;
         }
         else if(result == 2){
             cout << "무승부 입니다.\n";
             Sleep(1000);
-            return false;
+            return 0;
         }
     }
 };

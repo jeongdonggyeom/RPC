@@ -30,16 +30,8 @@ public:
     }
 
     int result(int rs){
-        if(rs){
-            cout << "당신이 이겼습니다!\n";
-            Sleep(1000);
-            return 1;
-        }
-        else if(!rs){
-            cout << "당신이 졌습니다... \n";
-            Sleep(1000);
-            return 0;
-        }
+        if(rs) return game.judgement(1);
+        else if(!rs) return game.judgement(0);
     }
 
     int getFirstNum(User user){
